@@ -55,6 +55,7 @@ module.exports = {
     'no-useless-return': 'off',
     'quotes': 'off',
     'no-else-return': 'off',
+    'no-underscore-dangle': 'off',
 
     // allow console.log during development only
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
