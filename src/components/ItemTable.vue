@@ -1,14 +1,13 @@
 <template>
-  <div id="q-app">
-    <router-view />
-  </div>
+    <p>item table</p>
 </template>
 
 <script>
     export default {
-        name: 'App',
+        name: 'ItemTable',
     };
 </script>
 
-<style>
+<style scoped>
+
 </style>
