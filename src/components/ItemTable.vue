@@ -2,31 +2,32 @@
     <div class="q-pa-md">
         <q-table
             title="Your Items"
-            :data="data"
+            :data="getItems"
             :columns="columns"
             row-key="id"
-            hide-bottom/>
+            hide-bottom
+        >
+            <template v-slot:body="props">
+                <ItemTableRow :props="props"/>
+            </template>
+        </q-table>
     </div>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
+    import ItemTableRow from './ItemTableRow';
+
     export default {
         name: 'ItemTable',
+        components: { ItemTableRow },
+        computed: {
+            ...mapGetters([
+                'getItems',
+            ]),
+        },
         data() {
             return {
-                data: [
-                    {
-                        id: '1',
-                        task: 'idk',
-                        tags: 'school, CN 1541',
-                        recommendedDeadline: '2019/09/13',
-                        hardDeadline: '2019/09/14',
-                        priorityPoints: 12,
-                        difficulty: 'Medium',
-                        importance: 'Mission Critical',
-                        status: 'Done',
-                    },
-                ],
                 columns: [
                     {
                         name: 'task',
@@ -91,5 +92,7 @@
 </script>
 
 <style scoped>
-
+    .p {
+        color: red;
+    }
 </style>
