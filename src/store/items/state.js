@@ -1,0 +1,37 @@
+export default {
+    items: {
+        'eec94d09-935c-4519-9c6f-29533671bf03': {
+            id: 'eec94d09-935c-4519-9c6f-29533671bf03',
+            task: 'idk',
+            tags: 'school, CN 1541',
+            recommendedDeadline: '2019/09/13',
+            hardDeadline: '2019/09/14',
+            priorityPoints: 12,
+            difficulty: 'Medium',
+            importance: 'Mission Critical',
+            status: 'Done',
+        },
+        '08e3c8a2-339a-4e12-8d55-2f5d9e03c8db': {
+            id: '08e3c8a2-339a-4e12-8d55-2f5d9e03c8db',
+            task: 'Create FR for Ice Cream Party',
+            tags: 'vegclub',
+            recommendedDeadline: '2019/09/12',
+            hardDeadline: '2019/09/13',
+            priorityPoints: 12,
+            difficulty: 'Hard',
+            importance: 'High',
+            status: 'Not Started',
+        },
+        '067c19d6-7b17-457e-8ed7-80d734135376': {
+            id: '067c19d6-7b17-457e-8ed7-80d734135376',
+            task: 'Assignment 3',
+            tags: 'school, CS 4241',
+            recommendedDeadline: '2019/09/15',
+            hardDeadline: '2019/09/16',
+            priorityPoints: 12,
+            difficulty: 'Medium',
+            importance: 'High',
+            status: 'In Progress',
+        },
+    },
+};
