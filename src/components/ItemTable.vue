@@ -6,6 +6,7 @@
             :columns="columns"
             row-key="id"
             hide-bottom
+            ref="table"
         >
             <template v-slot:body="props">
                 <ItemTableRow :props="props"/>
@@ -26,6 +27,9 @@
                 'getItems',
                 'getDisplayName',
             ]),
+        },
+        mounted() {
+            this.$refs.table.innerPagination.rowsPerPage = 0;
         },
         data() {
             return {
