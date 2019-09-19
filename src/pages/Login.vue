@@ -24,6 +24,7 @@
 
 
 <script>
+    import { Notify } from 'quasar';
     import axios, { axiosInstance } from '../boot/axios';
 
     export default {
@@ -51,7 +52,13 @@
                         this.$store.dispatch('setDisplayName', response.data);
                     })
                     .catch((err) => {
-                        // TODO: Toast
+                        if (err.response.status === 400) {
+                            Notify.create({
+                                message: "(」゜ロ゜)」 Invalid Credentials",
+                                timeout: 2000,
+                                color: 'red',
+                            });
+                        }
                         console.error(err);
                     });
             },
@@ -69,7 +76,14 @@
                         this.$store.dispatch('setDisplayName', response.data);
                     })
                     .catch((err) => {
-                        console.error("I wanna grow up and be a toast", err);
+                        if (err.response.status === 500) {
+                            Notify.create({
+                                message: "Try a different username ┗(•̀へ •́ ╮ )",
+                                timeout: 2000,
+                                color: 'red',
+                            });
+                        }
+                        console.error(err);
                     });
             },
         },

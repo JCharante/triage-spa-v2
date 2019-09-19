@@ -1,6 +1,10 @@
+import { Notify } from 'quasar';
 import { baseItem } from './def';
 import { axiosInstance } from '../../boot/axios';
 
+/*
+    Credit for mongObjectId() goes to https://gist.github.com/solenoid/1372386
+ */
 function mongoObjectId() {
     // eslint-disable-next-line no-bitwise
     const timestamp = (new Date().getTime() / 1000 | 0).toString(16);
@@ -21,6 +25,10 @@ export function initializeStoreFromServer({ commit, rootState }) {
                 resolve();
             })
             .catch((err) => {
+                Notify.create({
+                    message: `(╯°□°）╯︵ ┻━┻ ${err.toString()}`,
+                    timeout: 2000,
+                });
                 console.log(err);
                 reject();
             });
@@ -40,8 +48,11 @@ export function createItem({ commit, rootState }, itemName) {
                 resolve();
             })
             .catch((error) => {
-                // TODO: Toast
                 console.log(error);
+                Notify.create({
+                    message: `(╯°□°）╯︵ ┻━┻ ${error.toString()}`,
+                    timeout: 2000,
+                });
                 reject();
             });
     });
@@ -61,7 +72,10 @@ export function deleteItemById({ commit, rootState }, { id }) {
                 resolve();
             })
             .catch((error) => {
-                // TODO: Toast
+                Notify.create({
+                    message: `(╯°□°）╯︵ ┻━┻ ${error.toString()}`,
+                    timeout: 2000,
+                });
                 console.log(error);
                 reject();
             });
@@ -79,7 +93,10 @@ export function setItemPropertiesById({ commit, rootState }, obj) {
                     resolve();
                 })
                 .catch((err) => {
-                    // TODO: Toast
+                    Notify.create({
+                        message: `(╯°□°）╯︵ ┻━┻ ${err.toString()}`,
+                        timeout: 2000,
+                    });
                     console.log(err);
                     reject();
                 });
