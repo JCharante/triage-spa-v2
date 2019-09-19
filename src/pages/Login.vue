@@ -42,6 +42,13 @@
                     .then((response) => {
                         console.log(response);
                         this.$store.dispatch('setSessionDoc', response.data).then(this.$router.push('/'));
+                        return response;
+                    })
+                    .then((response) => {
+                        return axiosInstance.post('/', { sessionKey: response.data.sessionKey, requestType: 'userDetails' });
+                    })
+                    .then((response) => {
+                        this.$store.dispatch('setDisplayName', response.data);
                     })
                     .catch((err) => {
                         // TODO: Toast
@@ -53,6 +60,13 @@
                     .then((response) => {
                         console.log(response);
                         this.$store.dispatch('setSessionDoc', response.data).then(this.$router.push('/'));
+                        return response;
+                    })
+                    .then((response) => {
+                        return axiosInstance.post('/', { sessionKey: response.data.sessionKey, requestType: 'userDetails' });
+                    })
+                    .then((response) => {
+                        this.$store.dispatch('setDisplayName', response.data);
                     })
                     .catch((err) => {
                         console.error("I wanna grow up and be a toast", err);

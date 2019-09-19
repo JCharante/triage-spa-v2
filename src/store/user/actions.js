@@ -14,6 +14,10 @@ export function login({ commit }, { username, password }) {
     });
 }
 
+export function setDisplayName({ commit }, { displayName }) {
+    commit('setDisplayName', displayName);
+}
+
 export function setSessionDoc({ commit }, { sessionKey }) {
     commit('setSessionKey', sessionKey);
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="q-pa-md">
         <q-table
-            title="Your Items"
+            :title="`Welcome Back ${getDisplayName} °˖✧◝(⁰▿⁰)◜✧˖°`"
             :data="getItems"
             :columns="columns"
             row-key="id"
@@ -24,6 +24,7 @@
         computed: {
             ...mapGetters([
                 'getItems',
+                'getDisplayName',
             ]),
         },
         data() {
