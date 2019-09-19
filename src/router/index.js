@@ -18,7 +18,7 @@ export default function ({ store }) {
         store.dispatch('setSessionDoc', { sessionKey });
     }
     if (displayName) {
-        store.dispatch('setDisplayName', displayName);
+        store.dispatch('setDisplayName', { displayName });
     }
     const Router = new VueRouter({
         scrollBehavior: () => ({ x: 0, y: 0 }),
