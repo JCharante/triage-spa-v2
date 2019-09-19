@@ -69,23 +69,20 @@ export function deleteItemById({ commit, rootState }, { id }) {
 }
 
 
-export function setItemPropertiesById({ commit }, obj) {
+export function setItemPropertiesById({ commit, rootState }, obj) {
     return new Promise((resolve, reject) => {
         if ('id' in obj) {
-            /*
-            axiosInstance.post('/', { type: 'modifyItem', data: obj })
+            commit('setItemPropertiesById', obj);
+            axiosInstance.post('/', { requestType: 'modifyItem', itemId: obj.id, data: obj, sessionKey: rootState.user.sessionKey })
                 .then((response) => {
                     console.log(response.data);
-                    obj.priorityPoints = response.data.priorityPoints;
-                    commit('setItemPropertiesById', obj);
                     resolve();
                 })
                 .catch((err) => {
+                    // TODO: Toast
                     console.log(err);
                     reject();
                 });
-            */
-            commit('setItemPropertiesById', obj);
             resolve();
         } else {
             reject();
