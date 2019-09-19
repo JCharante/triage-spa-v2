@@ -27,6 +27,7 @@
 </style>
 
 <script>
+    import { mapActions } from 'vuex';
     import ItemTable from '../components/ItemTable';
 
     export default {
@@ -38,7 +39,13 @@
                 name: '',
             };
         },
+        beforeMount() {
+            this.initializeStoreFromServer();
+        },
         methods: {
+            ...mapActions([
+                'initializeStoreFromServer',
+            ]),
             submit() {
                 this.$store.dispatch('createItem', this.name).then(() => {
                     this.name = '';

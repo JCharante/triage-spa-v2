@@ -10,12 +10,12 @@ function mongoObjectId() {
     }).toLowerCase();
 }
 
-export function initializeStoreFromServer({ commit }) {
+export function initializeStoreFromServer({ commit, rootState }) {
     return new Promise((resolve, reject) => {
-        axiosInstance.post('/', { type: 'getData' })
+        axiosInstance.post('/', { requestType: 'getItems', sessionKey: rootState.user.sessionKey })
             .then((response) => {
                 console.log(response);
-                Object.values(response.data.itemsStore).forEach((item) => {
+                Object.values(response.data).forEach((item) => {
                     commit('addItem', item);
                 });
                 resolve();
