@@ -13,3 +13,7 @@ export function login({ commit }, { username, password }) {
         resolve();
     });
 }
+
+export function setSessionDoc({ commit }, { sessionKey }) {
+    commit('setSessionKey', sessionKey);
+}
