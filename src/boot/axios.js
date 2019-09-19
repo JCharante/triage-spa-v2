@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://a3-jcharante-api.glitch.me',
+    baseURL: '/',
 });
 
 export default async ({ Vue }) => {
