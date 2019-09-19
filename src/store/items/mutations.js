@@ -4,13 +4,8 @@ export function addItem(state, itemObj) {
     Vue.set(state.items, itemObj.id, itemObj);
 }
 
-export function deleteItemById(state, dataObj) {
-    /*
-    dataObj = {
-        id: '',
-    }
-     */
-    Vue.delete(state.items, dataObj.id);
+export function deleteItemById(state, { id }) {
+    Vue.delete(state.items, id);
 }
 
 export function setItemPropertiesById(state, newItemObj) {
